@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'product-list',
-  templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css',
+  selector: 'container',
+  templateUrl: './container.component.html',
+  styleUrl: './container.component.css',
 })
-export class ProductListComponent {
-  // name = 'John Doe';
+export class ContainerComponent {
   addToCart: number = 0;
   product = {
     name: 'iPhone 16',
