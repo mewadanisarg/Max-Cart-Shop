@@ -15,10 +15,21 @@
 
 .btn {
     margin-left: 3px;
-    border-radius: 50%;
+    padding: 12px 30px;
+    cursor: pointer;
 }
 
 .ekart-search-result-for {
     margin: 20px auto;
     padding: 10px 140px;
+}
+
+.btn-search-disabled {
+    padding: 12px 30px;
+    background-color: #aaa;
+    margin-left: 3px;
+    color: #999;
+    border: #aaa 1px solid;
+    cursor: not-allowed;
+
 }
