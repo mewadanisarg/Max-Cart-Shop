@@ -15,14 +15,11 @@ export class FilterComponent {
   @Input()
   outOfStock: number = 0;
 
-  // Keeping track of the selected filter radio button in child component
-  selectedFilterRadioButton: any = 'all';
-
-  @Output()
-  // Custom event handler.
-  selectedFilterRadioButtonChanged: EventEmitter<string> =
+  @Output() selectedFilterRadioButtonChanged: EventEmitter<string> =
     new EventEmitter<string>();
 
+  // Keeping track of the selected filter radio button in child component
+  selectedFilterRadioButton: string = 'all';
   // What should
   onSelectedFilterRadioButtonChanged() {
     console.log(this.selectedFilterRadioButton);
