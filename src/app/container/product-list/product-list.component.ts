@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
-
   products = [
     {
       id: 1,
@@ -599,4 +598,19 @@ export class ProductListComponent {
       slug: 'michael-feburary-sk8-hi',
     },
   ];
+
+  totalProductCount = this.products.length;
+  totalProductInstockCount = this.products.filter(
+    (p) => p.is_in_inventory === true
+  ).length;
+  totalProductOutofStockCount = this.products.filter(
+    (p) => p.is_in_inventory === false
+  ).length;
+
+  // Keeping track of the selected filter radio button in parent component
+  selectedFilterRadioButton: string = 'all';
+  onFilterChange(value: any) {
+    console.log(value);
+    this.selectedFilterRadioButton = value.target.value;
+  }
 }

@@ -1,4 +1,9 @@
-<app-filter></app-filter>
+<app-filter [all]="totalProductCount" [inStock]="totalProductInstockCount" [outOfStock]="totalProductOutofStockCount"
+    (selectedFilterRadioButtonChanged)="onFilterChange($event)"></app-filter>
 <div class="ekart--product--container">
-    <app-product *ngFor="let prod of products" [product]="prod"></app-product>
+    <div *ngFor="let prod of products">
+
+        <app-product [product]="prod"
+            *ngIf="selectedFilterRadioButton === 'all'|| prod.is_in_inventory.toString() === selectedFilterRadioButton "></app-product>
+    </div>
 </div>
