@@ -1,7 +1,7 @@
 <div class="ekart--search--product">
-    <!-- using 'template reference variable' #searchInput -->
+    <!-- using 'template reference variable' #searchInput is storing the ref to the input element -->
     <input class="ekart-search-product-input" #searchInput>
-    <button class="btn btn-search btn-dark" (click)="updateSearchText(searchInput)">Search</button>
+    <button class="btn btn-search btn-dark" (click)="updateSearchText()">Search</button>
 </div>
 <div class="ekart-search-result-for">
     <p *ngIf="searchText != '' "><strong>Search result for:</strong> {{ searchText }}</p>

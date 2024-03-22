@@ -1,9 +1,13 @@
+<!-- We are passing data of the stock via [all], [inStock], [outOfstock] to child component -->
 <app-filter [all]="totalProductCount" [inStock]="totalProductInstockCount" [outOfStock]="totalProductOutofStockCount"
     (selectedFilterRadioButtonChanged)="onFilterChange($event)"></app-filter>
 <div class="ekart--product--container">
     <div *ngFor="let prod of products">
-        <!-- *ngIf="selectedFilterRadioButton === 'all'|| prod.is_in_inventory.toString() === selectedFilterRadioButton " -->
-        <app-product [product]="prod"
-            *ngIf="searchText ==='' || prod.name.toLocaleLowerCase().includes(searchText)"></app-product>
+        <ng-container
+            *ngIf="selectedFilterRadioButton === 'all'|| prod.is_in_inventory.toString() === selectedFilterRadioButton ">
+            <!-- [product] -> is custom property binding. Here we are binding the property of child component<app-product> with the parent component -->
+            <app-product [product]="prod" *ngIf="searchText ==='' || prod.name.toLocaleLowerCase().includes(searchText)"
+                (click)="selectedProduct = prod"></app-product>
+        </ng-container>
     </div>
 </div>

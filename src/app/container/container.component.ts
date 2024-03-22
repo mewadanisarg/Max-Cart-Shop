@@ -1,4 +1,6 @@
+import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @Component({
   selector: 'container',
@@ -7,9 +9,8 @@ import { Component } from '@angular/core';
 })
 export class ContainerComponent {
   searchText: string = '';
-  updateSearchText(event: any) {
-    this.searchText = event.target.value;
-  }
+
+  @ViewChild(ProductListComponent) productListComponent: ProductListComponent;
 
   setSearchText(value: string) {
     this.searchText = value;

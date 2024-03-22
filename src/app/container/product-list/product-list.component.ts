@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
-
+import { Product } from '../../Models/Product';
 @Component({
   selector: 'product-list',
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
+  selectedProduct : Product;
   products = [
     {
       id: 1,
@@ -599,6 +600,7 @@ export class ProductListComponent {
     },
   ];
 
+  // Getting the product count from the proudcts array and passing it to the totalProductCount variable and that passed it child component(filter-component)
   totalProductCount = this.products.length;
   totalProductInstockCount = this.products.filter(
     (p) => p.is_in_inventory === true
@@ -613,6 +615,7 @@ export class ProductListComponent {
   selectedFilterRadioButton: string = 'all';
   onFilterChange(value: string) {
     //console.log(value);
+    // We are getting the value from (selectedFilterRadioButtonChanged)="onFilterChange($event)". $event has value of the selected radio button.
     this.selectedFilterRadioButton = value;
   }
 }
